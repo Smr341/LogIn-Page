@@ -1,0 +1,19 @@
+<html style="background-color:DeepSkyBlue";>
+    <head>
+        <title>Knowledge Platform</title>
+    </head>
+    <body>
+        <section style="background-color:Cornsilk";>
+            <h1><center>Welcome to Knowledge Platform</center></h1>
+            <h4><center> A platform designed by CData to let users input any knowledge they have percieved and help others through the use of that knowledge.</center><h4>
+        </section><br><br>
+        <section style="text-align:justify;">
+{% autoescape off %}
+Welcome to jango Login
+Hello {{ name}}
+Please confirm your email by clicking on the following link.
+Confirmation Link: http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}
+</section>
+</body>
+</html>

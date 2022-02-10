@@ -1,0 +1,26 @@
+<html style="background-color:DeepSkyBlue";>
+    <head>
+        <title>Knowledge Platform</title>
+    </head>
+    <body>
+        <section style="background-color:Cornsilk";>
+            <h1><center>Welcome to Knowledge Platform</center></h1>
+            <h4><center> A platform designed by CData to let users input any knowledge they have percieved and help others through the use of that knowledge.</center><h4>
+        </section><br><br>
+        <section style="text-align:justify;">
+       <h3>SignOut</h3>
+       <button><a href="/">HOME</a></button>
+       {% for message in messages %}
+       <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+           <strong>Message:</strong> {{ message }}
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+       </div>
+       {% endfor %}
+   
+        
+        <script src="" async defer></script>
+    </section>
+</body>
+</html>

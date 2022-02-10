@@ -1,0 +1,67 @@
+<html style="background-color:DeepSkyBlue";>
+    <head>
+        <title>Knowledge Platform</title>
+    </head>
+    <body>
+        <section style="background-color:Cornsilk";>
+            <h1><center>Welcome to Knowledge Platform</center></h1>
+            <h4><center> A platform designed by CData to let users input any knowledge they have percieved and help others through the use of that knowledge.</center><h4>
+        </section><br><br>
+        <section style="text-align:justify;">
+        {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+    {% endfor %}
+
+       {% if user.is_authenticated %}
+          <h3> Hello {{ fname }} </h3>
+          <h4> You are succesfully logged in </h4>
+          <h3>Enter knowledge details</h3>
+          <form action="add" method='post'>
+            {% csrf_token %}
+            <label for="ptype">Problem Type</label> 
+            <select id="ptype" name="ptype">
+                <option value="defect">Defect</option>
+                <option value="enhancement">Enhancement</option>
+                <option value="supportticket">Support Ticket</option>
+                <option value="opportunity">Opportunity</option>
+            </select>
+            <br>
+            <label for="psummary">Problem Summary</label> 
+            <input type="text" id="psummary" name="psummary">
+            <br>
+            <label for="pdescription">Problem Description</label> 
+            <input type="text" id="pdescription" name="pdescription">
+            <br>
+             Products Mapped
+            <input type="checkbox" id="p" name="p1" value="p1">
+            <label for="p1">Product 1</label>
+            <input type="checkbox" id="p1" name="p2" value="p2">
+            <label for="p2">Product 2</label>
+            <input type="checkbox" id="p2" name="p3" value="p3">
+            <label for="p3">Product 3</label>
+            <br>
+            <label for="kananlysis">Knowledge Analysis</label> 
+            <input type="text" id="kanalysis" name="kanalysis">
+            <br>
+            <label for="kinsights">Knowledge Insights</label> 
+            <input type="text" id="kinsights" name="kinsights">
+            <br>
+            <label for="owner">Owner</label> 
+            <input type="text" id="owner" name="owner">
+            <br>
+            <input type="submit">
+            </form>
+             <button type ="submit"><a href="/signout">signout </a></button>
+        {% else %}
+            <button type="submit"><a href="/signup">signup </a></button>
+            <button type="submit"><a href="/signin">signin </a></button>
+        {% endif %}
+        <script src="" async defer></script>
+    </section>
+</body>
+</html>

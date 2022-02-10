@@ -1,0 +1,51 @@
+<html style="background-color:DeepSkyBlue";>
+    <head>
+        <title>Knowledge Platform</title>
+    </head>
+    <body>
+        <section style="background-color:Cornsilk";>
+            <h1><center>Welcome to Knowledge Platform</center></h1>
+            <h4><center> A platform designed by CData to let users input any knowledge they have percieved and help others through the use of that knowledge.</center><h4>
+        </section><br><br>
+        <section style="text-align:justify;">
+        <h3>SignUp</h3>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+        {% endfor %}
+    
+        <button><a href="/">HOME</a></button>
+        <form action="/signup" method="POST">
+        {% csrf_token %}
+            <label for=""> Username</label>
+                <input type="text" id="username" name="username" placeholder="Create a username only aplhanumeric" required >
+                <br>
+            <label for=""> Firstname</label>
+                <input type="text" id="fname" name="fname" placeholder="Create a Firstname only aplhabets" required>
+                <br>
+            <label for="">Lastname </label>
+                <input type="text" id="lname" name="lname" placeholder="Create a Lastname only aplhabets" required>
+                <br>
+            <label for="">Email </label>
+                <input type="email" id="email" name="email" placeholder="Create a Email " required>
+                <br>
+            <label for="">Password </label>
+                <input type="password" id="pass1" name="pass1" placeholder="Create a Password " required>
+                <br>
+            <label for="">Confirm your Password </label>
+                <input type="password" id="pass2" name="pass2" placeholder="Confirm Your Password " required>
+                <br>
+              <button type="submit">Submit</button>
+              <br>
+              <button type="reset">Reset</button>
+           
+        </form>
+        
+        <script src="" async defer></script>
+    </section>
+</body>
+</html>
